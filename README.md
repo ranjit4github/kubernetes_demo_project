@@ -46,7 +46,7 @@ At this point your pods will be up and running.
 
 **Check pods and the services.**
 ```
-Ranjits-MacBook-Air:Desktop ranjitswain$ **kubectl get all --namespace=dev**
+Ranjits-MacBook-Air:Desktop ranjitswain$ kubectl get all --namespace=dev
 NAME                             READY   STATUS    RESTARTS   AGE
 pod/mysqldb-replicaset-w5tgg     1/1     Running   6          6d12h
 pod/tomcatweb-replicaset-kn8bz   1/1     Running   6          6d12h
@@ -62,32 +62,32 @@ replicaset.apps/tomcatweb-replicaset   2         2         2       6d12h
 ```
 **To check configMap**
 ```
-Ranjits-MacBook-Air:Desktop ranjitswain$ **kubectl get configmap --namespace=dev**
+Ranjits-MacBook-Air:Desktop ranjitswain$ kubectl get configmap --namespace=dev
 NAME        DATA   AGE
 db-config   3      8d
 ```
 **To check secret**
 ```
-Ranjits-MacBook-Air:Desktop ranjitswain$ **kubectl get secret --namespace=dev**
+Ranjits-MacBook-Air:Desktop ranjitswain$ kubectl get secret --namespace=dev
 NAME                  TYPE                                  DATA   AGE
 db-secret             Opaque                                2      9d
 default-token-99hkl   kubernetes.io/service-account-token   3      10d
 ```
 **Persisten Volume**
 ```
-Ranjits-MacBook-Air:Desktop ranjitswain$ **kubectl get pv --namespace=dev**
+Ranjits-MacBook-Air:Desktop ranjitswain$ kubectl get pv --namespace=dev
 NAME              CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                STORAGECLASS   REASON   AGE
 mysql-pv-volume   2Gi        RWO            Retain           Bound    dev/mysql-pv-claim   manual                  8d
 ```
 **Persistent Volume Claim**
 ```
-Ranjits-MacBook-Air:Desktop ranjitswain$ **kubectl get pvc --namespace=dev**
+Ranjits-MacBook-Air:Desktop ranjitswain$ kubectl get pvc --namespace=dev
 NAME             STATUS   VOLUME            CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 mysql-pv-claim   Bound    mysql-pv-volume   2Gi        RWO            manual         8d
 ```
 **Check the pods**
 ```
-Ranjits-MacBook-Air:Desktop ranjitswain$ **kubectl get pods --namespace=dev**
+Ranjits-MacBook-Air:Desktop ranjitswain$ kubectl get pods --namespace=dev
 NAME                         READY   STATUS    RESTARTS   AGE
 mysqldb-replicaset-w5tgg     1/1     Running   6          6d12h
 tomcatweb-replicaset-kn8bz   1/1     Running   6          6d12h
@@ -95,7 +95,7 @@ tomcatweb-replicaset-tdj4q   1/1     Running   6          6d12h
 ```
 **Check the services**
 ```
-Ranjits-MacBook-Air:Desktop ranjitswain$ **kubectl get services --namespace=dev**
+Ranjits-MacBook-Air:Desktop ranjitswain$ kubectl get services --namespace=dev
 NAME              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
 mysqldb-service   ClusterIP   None             <none>        3306/TCP         6d12h
 tomcat-service    NodePort    10.105.128.104   <none>        8080:30008/TCP   6d12h
@@ -104,7 +104,7 @@ tomcat-service    NodePort    10.105.128.104   <none>        8080:30008/TCP   6d
 
 ## To view the application in your web browser, describe the service and get the LoadBalancer Ingress name and the NodePort
 ```
-Ranjits-MacBook-Air:Desktop ranjitswain$ **kubectl describe service tomcat-service --namespace=dev**
+Ranjits-MacBook-Air:Desktop ranjitswain$ kubectl describe service tomcat-service --namespace=dev
 Name:                     tomcat-service
 Namespace:                dev
 Labels:                   <none>
